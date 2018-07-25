@@ -9,6 +9,7 @@
     ~/.i3: i3
     ~/.i3status.conf: i3status.conf
     ~/.config/rofi: config/rofi
+    ~/.gitconfig: gitconfig
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
