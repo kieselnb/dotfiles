@@ -10,6 +10,7 @@
     ~/.i3status.conf: i3status.conf
     ~/.config/rofi: config/rofi
     ~/.gitconfig: gitconfig
+    ~/.zshrc: zshrc
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
