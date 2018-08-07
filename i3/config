@@ -180,7 +180,8 @@ gaps inner 10
 smart_gaps on
 
 exec --no-startup-id ~/.fehbg # set background
-exec --no-startup-id compton --no-fading-openclose # start compositor to allow transparency
+# start compositor to allow transparency
+exec --no-startup-id compton --no-fading-openclose
 exec --no-startup-id nm-applet # start NetworkManager applet
 exec --no-startup-id udiskie
 exec --no-startup-id twmnd
@@ -205,3 +206,6 @@ bindsym $mod+Ctrl+l exec --no-startup-id ~/scripts/transfer-sleep-lock-i3lock.sh
 
 # files key
 bindsym $mod+e exec --no-startup-id nautilus
+
+# PrtSc
+bindsym Print exec --no-startup-id scrot -e 'mv $f ~/Pictures/screenshots/'
