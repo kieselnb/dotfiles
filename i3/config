@@ -185,14 +185,15 @@ exec --no-startup-id compton --no-fading-openclose
 exec --no-startup-id nm-applet # start NetworkManager applet
 exec --no-startup-id udiskie
 exec --no-startup-id twmnd
-exec --no-startup-id volnoti
+#exec --no-startup-id volnoti
 exec --no-startup-id blueman-applet
 exec --no-startup-id xss-lock -l -- ~/scripts/transfer-sleep-lock-i3lock.sh
 
-bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5 # increase in screen brightness
-bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5 # decrease in screen brightness
+# change screen brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5
+bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5
 
-# bind volume keys (and mute)
+# volume up/down keys (and mute)
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +2%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -2%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
