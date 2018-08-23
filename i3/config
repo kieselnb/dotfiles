@@ -185,7 +185,7 @@ exec --no-startup-id compton --no-fading-openclose
 exec --no-startup-id nm-applet # start NetworkManager applet
 exec --no-startup-id udiskie
 exec --no-startup-id twmnd
-#exec --no-startup-id volnoti
+exec --no-startup-id volnoti
 exec --no-startup-id blueman-applet
 exec --no-startup-id xss-lock -l -- ~/scripts/transfer-sleep-lock-i3lock.sh
 
@@ -194,12 +194,12 @@ bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5
 bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5
 
 # volume up/down keys (and mute)
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +2%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -2%
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id pamixer -i 5 && volnoti-show $(pamixer --get-volume)
+bindsym XF86AudioLowerVolume exec --no-startup-id pamixer -d 5 && volnoti-show $(pamixer --get-volume)
+bindsym XF86AudioMute exec --no-startup-id "pamixer -t && if pamixer --get-mute = 'true'; then volnoti-show -m; else volnoti-show $(pamixer --get-volume); fi"
 
 # mute mic
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86AudioMicMute exec --no-startup-id pamixer --default-source -t
 
 bindsym $mod+Ctrl+space exec --no-startup-id playerctl play-pause
 bindsym $mod+Ctrl+Left exec --no-startup-id playerctl previous
