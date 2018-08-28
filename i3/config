@@ -184,7 +184,8 @@ exec --no-startup-id ~/.fehbg # set background
 exec --no-startup-id compton --no-fading-openclose
 exec --no-startup-id nm-applet # start NetworkManager applet
 exec --no-startup-id udiskie
-exec --no-startup-id twmnd
+#exec --no-startup-id twmnd
+exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd
 exec --no-startup-id volnoti
 exec --no-startup-id blueman-applet
 exec --no-startup-id xss-lock -l -- ~/scripts/transfer-sleep-lock-i3lock.sh
