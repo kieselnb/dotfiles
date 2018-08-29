@@ -13,6 +13,8 @@ syntax on
 set number
 
 " use spaces instead of tabs
+" indentation settings to use 4 spaces
+set shiftwidth=4
 set expandtab
 set softtabstop=4
 
@@ -34,11 +36,6 @@ set backspace=indent,eol,start
 
 " enable use of mouse
 set mouse=a
-
-" indentation settings to use 4 spaces instead of tabs
-set shiftwidth=4
-set softtabstop=4
-set expandtab
 
 " highlight 80th column for easier line wrap
 set cc=80
