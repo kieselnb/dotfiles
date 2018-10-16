@@ -190,8 +190,8 @@ exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd
 exec --no-startup-id volnoti
 exec --no-startup-id blueman-applet
 exec --no-startup-id xss-lock -l -- ~/scripts/transfer-sleep-lock-i3lock.sh
-exec --no-startup-id redshift-gtk -l 40.428123:-79.931034
-exec --no-startup-id mailspring -b
+exec --no-startup-id redshift-gtk -l 40.428123:-79.931030
+
 
 # change screen brightness
 bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5
