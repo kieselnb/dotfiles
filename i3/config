@@ -198,9 +198,9 @@ bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5
 bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5
 
 # volume up/down keys (and mute)
-bindsym Ctrl+$mod+Up exec --no-startup-id pamixer -i 5 && volnoti-show $(pamixer --get-volume)
-bindsym Ctrl+$mod+Down exec --no-startup-id pamixer -d 5 && volnoti-show $(pamixer --get-volume)
-bindsym Ctrl+$mod+m exec --no-startup-id "pamixer -t && if pamixer --get-mute = 'true'; then volnoti-show -m; else volnoti-show $(pamixer --get-volume); fi"
+bindsym XF86AudioRaiseVolume exec --no-startup-id pamixer -i 5 && volnoti-show $(pamixer --get-volume)
+bindsym XF86AudioLowerVolume exec --no-startup-id pamixer -d 5 && volnoti-show $(pamixer --get-volume)
+bindsym XF86AudioMute exec --no-startup-id "pamixer -t && if pamixer --get-mute = 'true'; then volnoti-show -m; else volnoti-show $(pamixer --get-volume); fi"
 
 # mute mic
 bindsym XF86AudioMicMute exec --no-startup-id pamixer --default-source -t
