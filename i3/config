@@ -192,14 +192,15 @@ exec --no-startup-id blueman-applet
 exec --no-startup-id xss-lock -l -- ~/scripts/transfer-sleep-lock-i3lock.sh
 exec --no-startup-id redshift-gtk -l 40.428123:-79.931030
 
+
 # change screen brightness
 bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5
 bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5
 
 # volume up/down keys (and mute)
-bindsym XF86AudioRaiseVolume exec --no-startup-id pamixer -i 5 && volnoti-show $(pamixer --get-volume)
-bindsym XF86AudioLowerVolume exec --no-startup-id pamixer -d 5 && volnoti-show $(pamixer --get-volume)
-bindsym XF86AudioMute exec --no-startup-id "pamixer -t && if pamixer --get-mute = 'true'; then volnoti-show -m; else volnoti-show $(pamixer --get-volume); fi"
+bindsym Ctrl+$mod+Up exec --no-startup-id pamixer -i 5 && volnoti-show $(pamixer --get-volume)
+bindsym Ctrl+$mod+Down exec --no-startup-id pamixer -d 5 && volnoti-show $(pamixer --get-volume)
+bindsym Ctrl+$mod+m exec --no-startup-id "pamixer -t && if pamixer --get-mute = 'true'; then volnoti-show -m; else volnoti-show $(pamixer --get-volume); fi"
 
 # mute mic
 bindsym XF86AudioMicMute exec --no-startup-id pamixer --default-source -t
@@ -210,6 +211,9 @@ bindsym $mod+Ctrl+Right exec --no-startup-id playerctl next
 
 # $mod+l is taken, so let's use $mod+o for locking
 bindsym $mod+Ctrl+l exec --no-startup-id ~/scripts/transfer-sleep-lock-i3lock.sh
+
+# key combo for suspend
+bindsym $mod+Ctrl+s exec --no-startup-id systemctl suspend
 
 # files key
 bindsym $mod+e exec --no-startup-id nautilus
