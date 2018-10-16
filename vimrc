@@ -37,9 +37,6 @@ set backspace=indent,eol,start
 " enable use of mouse
 set mouse=a
 
-" set colorscheme to be more visible
-colorscheme ron
-
 " highlight 80th column for easier line wrap
 set cc=80
 highlight ColorColumn ctermbg=DarkGray

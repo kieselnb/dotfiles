@@ -16,5 +16,3 @@ zstyle ':completion:*' menu select
 autoload -Uz promptinit
 promptinit
 prompt redhat
-
-alias yeet='yay -Rsn'
