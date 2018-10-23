@@ -220,3 +220,7 @@ bindsym $mod+e exec --no-startup-id nautilus
 
 # PrtSc
 bindsym Print exec --no-startup-id scrot -e 'mv $f ~/Pictures/screenshots/'
+
+# moving workspaces
+bindsym Ctrl+mod1+j workspace prev
+bindsym Ctrl+mod1+semicolon workspace next
