@@ -25,6 +25,11 @@ def read_line():
 
 def get_music_info():
     player = Playerctl.Player()
+
+    # handle when there is no player
+    if not player.get_property('status'):
+        return 'Nothing playing'
+
     title_artist = '{0} - {1}'.format(player.get_title(), player.get_artist())
     return title_artist.strip()
 
