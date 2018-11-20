@@ -168,7 +168,8 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         i3bar_command i3bar -t
-        status_command i3status
+        #status_command i3status
+        status_command i3status | ~/.i3/music.py
         # kieselnb
         font pango:Font Awesome 9
 }
@@ -220,3 +221,7 @@ bindsym $mod+e exec --no-startup-id nautilus
 
 # PrtSc
 bindsym Print exec --no-startup-id scrot -e 'mv $f ~/Pictures/screenshots/'
+
+# moving workspaces
+bindsym Ctrl+mod1+j workspace prev
+bindsym Ctrl+mod1+semicolon workspace next
