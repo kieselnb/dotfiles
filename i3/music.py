@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
 import json
-import os
 import sys
 from gi.repository import Playerctl
 
