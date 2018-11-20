@@ -25,11 +25,19 @@ def read_line():
 def get_music_info():
     player = Playerctl.Player()
 
+    status = player.get_property('status')
+
     # handle when there is no player
-    if not player.get_property('status'):
+    if not status:
         return 'Nothing playing'
 
     title_artist = '{0} - {1}'.format(player.get_title(), player.get_artist())
+
+    if status == 'Paused':
+        title_artist += ' '
+    else:
+        title_artist += ' '
+
     return title_artist.strip()
 
 if __name__ == '__main__':
