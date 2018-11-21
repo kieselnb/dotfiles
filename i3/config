@@ -168,7 +168,8 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         i3bar_command i3bar -t
-        status_command i3status
+        #status_command i3status
+        status_command i3status | ~/.i3/music.py
         # kieselnb
         font pango:Font Awesome 9
 }
