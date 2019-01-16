@@ -18,3 +18,4 @@ promptinit
 prompt redhat
 
 alias yeet='yay -Rsn'
+alias ls='ls -F'
