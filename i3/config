@@ -183,7 +183,7 @@ smart_gaps on
 
 exec --no-startup-id ~/.fehbg # set background
 # start compositor to allow transparency
-exec --no-startup-id compton --no-fading-openclose
+exec --no-startup-id compton -b --no-fading-openclose
 exec --no-startup-id nm-applet # start NetworkManager applet
 exec --no-startup-id udiskie
 #exec --no-startup-id twmnd
@@ -191,7 +191,7 @@ exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd
 exec --no-startup-id volnoti
 exec --no-startup-id blueman-applet
 exec --no-startup-id xss-lock -l -- ~/scripts/transfer-sleep-lock-i3lock.sh
-exec --no-startup-id redshift-gtk -l 40.428123:-79.931030
+exec --no-startup-id redshift-gtk
 
 
 # change screen brightness
@@ -199,16 +199,18 @@ bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5
 bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5
 
 # volume up/down keys (and mute)
-bindsym Ctrl+$mod+Up exec --no-startup-id pamixer -i 5 && volnoti-show $(pamixer --get-volume)
-bindsym Ctrl+$mod+Down exec --no-startup-id pamixer -d 5 && volnoti-show $(pamixer --get-volume)
-bindsym Ctrl+$mod+m exec --no-startup-id "pamixer -t && if pamixer --get-mute = 'true'; then volnoti-show -m; else volnoti-show $(pamixer --get-volume); fi"
+bindsym XF86AudioRaiseVolume exec --no-startup-id pamixer -i 5 && volnoti-show $(pamixer --get-volume)
+bindsym XF86AudioLowerVolume exec --no-startup-id pamixer -d 5 && volnoti-show $(pamixer --get-volume)
+bindsym XF86AudioMute exec --no-startup-id "pamixer -t && if pamixer --get-mute = 'true'; then volnoti-show -m; else volnoti-show $(pamixer --get-volume); fi"
 
 # mute mic
 bindsym XF86AudioMicMute exec --no-startup-id pamixer --default-source -t
 
-bindsym $mod+Ctrl+space exec --no-startup-id playerctl play-pause
-bindsym $mod+Ctrl+Left exec --no-startup-id playerctl previous
-bindsym $mod+Ctrl+Right exec --no-startup-id playerctl next
+# media keys
+bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
+bindsym XF86AudioStop exec --no-startup-id playerctl stop
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous
+bindsym XF86AudioNext exec --no-startup-id playerctl next
 
 # $mod+l is taken, so let's use $mod+o for locking
 bindsym $mod+Ctrl+l exec --no-startup-id ~/scripts/transfer-sleep-lock-i3lock.sh
