@@ -4,7 +4,6 @@ import json
 import sys
 
 import gi
-gi.require_version('Playerctl', '1.0')
 from gi.repository import Playerctl
 
 def print_line(message):
