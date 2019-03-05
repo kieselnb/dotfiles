@@ -33,7 +33,7 @@ def get_music_info():
     if not status:
         return 'Nothing playing'
 
-    title_artist = '{0} - {1}'.format(player.get_title(), player.get_artist())
+    title_artist = '{} - {}'.format(player.get_title(), player.get_artist())
 
     if status == 'Paused':
         title_artist += ' '
@@ -51,14 +51,14 @@ if __name__ == '__main__':
 
     while True:
         line, prefix = read_line(), ''
-        # ignroe comma at start of lines
+        # ignore comma at start of lines
         if line.startswith(','):
             line, prefix = line[1:], ','
 
         j = json.loads(line)
 
         # insert information into the start of the json
-        j.insert(0, {'full_text' : '%s' % get_music_info(), 'name' : 'music'})
+        j.insert(0, {'full_text' : '{}'.format(get_music_info()), 'name' : 'music'})
 
         # and echo back new encoded json
-        print_line(prefix+json.dumps(j))
+        print_line(prefix + json.dumps(j))
