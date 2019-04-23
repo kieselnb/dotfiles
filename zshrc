@@ -18,3 +18,9 @@ promptinit
 prompt redhat
 
 alias yeet='yay -Rsn'
+alias ls='ls -F'
+
+# add dotnet tools to path
+export PATH=$PATH:$HOME/.dotnet/tools
+# also disable telemetry for dotnet
+export DOTNET_CLI_TELEMETRY_OPTOUT=1

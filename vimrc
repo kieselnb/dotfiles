@@ -17,6 +17,7 @@ set number
 set shiftwidth=4
 set expandtab
 set softtabstop=4
+set tabstop=4
 
 " better command-line completion
 set wildmenu

@@ -9,6 +9,7 @@
     ~/.i3: i3
     ~/.i3status.conf: i3status.conf
     ~/.config/rofi: config/rofi
+    ~/.config/barrier.conf: config/barrier.conf
     ~/.gitconfig: gitconfig
     ~/.zshrc: zshrc
 

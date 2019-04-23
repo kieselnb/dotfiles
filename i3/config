@@ -183,7 +183,7 @@ smart_gaps on
 
 exec --no-startup-id ~/.fehbg # set background
 # start compositor to allow transparency
-exec --no-startup-id compton -b --no-fading-openclose
+exec --no-startup-id compton -b --no-fading-openclose --backend glx
 exec --no-startup-id nm-applet # start NetworkManager applet
 exec --no-startup-id udiskie
 #exec --no-startup-id twmnd
@@ -192,6 +192,7 @@ exec --no-startup-id volnoti
 exec --no-startup-id blueman-applet
 exec --no-startup-id xss-lock -l -- ~/scripts/transfer-sleep-lock-i3lock.sh
 exec --no-startup-id redshift-gtk
+exec --no-startup-id barriers -c ~/.config/barrier.conf --enable-crypto
 
 
 # change screen brightness
@@ -218,6 +219,9 @@ bindsym $mod+Ctrl+l exec --no-startup-id ~/scripts/transfer-sleep-lock-i3lock.sh
 # key combo for suspend
 bindsym $mod+Ctrl+s exec --no-startup-id systemctl suspend
 
+# add a combo for poweroff
+bindsym $mod+Ctrl+p exec --no-startup-id systemctl poweroff
+
 # files key
 bindsym $mod+e exec --no-startup-id nautilus
 
@@ -227,3 +231,6 @@ bindsym Print exec --no-startup-id scrot -e 'mv $f ~/Pictures/screenshots/'
 # moving workspaces
 bindsym Ctrl+mod1+j workspace prev
 bindsym Ctrl+mod1+semicolon workspace next
+
+# fix for origin
+for_window [instance="origin.exe"] floating enable
