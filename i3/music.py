@@ -29,16 +29,24 @@ def get_music_info():
 
     # handle when there is no player
     if not status:
-        return 'Nothing playing'
+        return ''
 
-    title_artist = '{0} - {1}'.format(player.get_title(), player.get_artist())
+    title = player.get_title()
+
+    # fall back to album if artist isn't avaiable
+    #   more for podcasts, since spotify deems those don't have artist?!?
+    artist_or_album = player.get_artist()
+    if artist_or_album == '':
+        artist_or_album = player.get_album()
+
+    curr_playing = '{0} - {1}'.format(title.strip(), artist_or_album.strip())
 
     if status == 'Paused':
-        title_artist += ' '
+        curr_playing += ' '
     else:
-        title_artist += ' '
+        curr_playing += ' '
 
-    return title_artist.strip()
+    return curr_playing.strip()
 
 if __name__ == '__main__':
     # Skip the first line which contains the version header.
@@ -56,7 +64,9 @@ if __name__ == '__main__':
         j = json.loads(line)
 
         # insert information into the start of the json
-        j.insert(0, {'full_text' : '%s' % get_music_info(), 'name' : 'music'})
+        music_info = get_music_info()
+        if len(music_info) > 0:
+            j.insert(0, {'full_text' : '%s' % get_music_info(), 'name' : 'music'})
 
         # and echo back new encoded json
         print_line(prefix+json.dumps(j))
