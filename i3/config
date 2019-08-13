@@ -182,17 +182,14 @@ gaps inner 10
 smart_gaps on
 
 exec --no-startup-id ~/.fehbg # set background
-# start compositor to allow transparency
-exec --no-startup-id compton --no-fading-openclose
+exec --no-startup-id compton -b --no-fading-openclose --backend glx --vsync
 exec --no-startup-id nm-applet # start NetworkManager applet
 exec --no-startup-id udiskie
-#exec --no-startup-id twmnd
 exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd
 exec --no-startup-id volnoti
 exec --no-startup-id blueman-applet
 exec --no-startup-id xss-lock -l -- ~/scripts/transfer-sleep-lock-i3lock.sh
 exec --no-startup-id redshift-gtk
-
 
 # change screen brightness
 bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5
@@ -210,7 +207,7 @@ bindsym $mod+Ctrl+space exec --no-startup-id playerctl play-pause
 bindsym $mod+Ctrl+Left exec --no-startup-id playerctl previous
 bindsym $mod+Ctrl+Right exec --no-startup-id playerctl next
 
-# $mod+l is taken, so let's use $mod+o for locking
+# $mod+l is taken, so let's use $mod+Ctrl+l for locking
 bindsym $mod+Ctrl+l exec --no-startup-id ~/scripts/transfer-sleep-lock-i3lock.sh
 
 # key combo for suspend
@@ -219,9 +216,11 @@ bindsym $mod+Ctrl+s exec --no-startup-id systemctl suspend
 # files key
 bindsym $mod+e exec --no-startup-id nautilus
 
-# PrtSc
+# PERNTSCERN
 bindsym Print exec --no-startup-id scrot -e 'mv $f ~/Pictures/screenshots/'
 
 # moving workspaces
 bindsym Ctrl+mod1+j workspace prev
 bindsym Ctrl+mod1+semicolon workspace next
+
+bindsym XF86Display exec --no-startup-id arandr
