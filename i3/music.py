@@ -31,7 +31,7 @@ def get_music_info():
 
     # handle when there is no player
     if not status:
-        return 'Nothing playing'
+        return
 
     title_artist = '{} - {}'.format(player.get_title(), player.get_artist())
 
@@ -58,7 +58,9 @@ if __name__ == '__main__':
         j = json.loads(line)
 
         # insert information into the start of the json
-        j.insert(0, {'full_text' : '{}'.format(get_music_info()), 'name' : 'music'})
+        music_info = get_music_info()
+        if music_info:
+            j.insert(0, {'full_text' : '{}'.format(music_info), 'name' : 'music'})
 
         # and echo back new encoded json
         print_line(prefix + json.dumps(j))
