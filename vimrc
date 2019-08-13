@@ -9,14 +9,17 @@ filetype indent plugin on
 " syntax highlighting
 syntax on
 
-" turn on line numbers
-set number
+" turn on relative line numbers
+set relativenumber
 
 " use spaces instead of tabs
 " indentation settings to use 4 spaces
 set shiftwidth=4
 set expandtab
 set softtabstop=4
+
+" set tabs to show as four spaces as well for languages that need tabs
+set tabstop=4
 
 " better command-line completion
 set wildmenu
