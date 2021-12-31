@@ -3,3 +3,5 @@
 	name = Nick Kiesel
 [color]
 	ui = auto
+[pull]
+	rebase = false

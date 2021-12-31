@@ -21,7 +21,9 @@ def read_line():
             sys.exit(3)
         return line
     # exit on ctrl-c
-    except KeyboardInterrupt:
+    #except KeyboardInterrupt:
+    except Exception as e:
+        print(e)
         sys.exit()
 
 def get_music_info():
@@ -33,7 +35,15 @@ def get_music_info():
     if not status:
         return
 
-    title_artist = '{} - {}'.format(player.get_title(), player.get_artist())
+    title = player.get_title()
+    artist = player.get_artist()
+
+    title_artist = ''
+    if title and len(title) > 0:
+        title_artist += title
+
+    if artist and len(artist) > 0:
+        title_artist += ' - ' + artist
 
     if status == 'Paused':
         title_artist += ' '

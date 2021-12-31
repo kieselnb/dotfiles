@@ -18,4 +18,23 @@ promptinit
 prompt redhat
 
 alias yeet='yay -Rsn'
-alias ls='ls -F'
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+
+eval $(thefuck --alias)
+
+function _whatis() {
+    case $1 in
+        "life")
+            echo "worth living"
+            ;;
+        "love")
+            echo "baby don't hurt me"
+            ;;
+        *)
+            whatis $@
+    esac
+}
+alias whatis='_whatis'
+
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

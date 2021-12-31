@@ -9,8 +9,8 @@ filetype indent plugin on
 " syntax highlighting
 syntax on
 
-" turn on relative line numbers
-set relativenumber
+" turn on line numbers
+set number
 
 " use spaces instead of tabs
 " indentation settings to use 4 spaces
@@ -46,3 +46,10 @@ colorscheme ron
 " highlight 80th column for easier line wrap
 set cc=80
 highlight ColorColumn ctermbg=DarkGray
+
+" set global ycm_conf
+"let g:ycm_global_ycm_extra_conf = '~/.global_ycm_extra_conf.py'
+
+" set LatexSuite things
+set grepprg=grep\ -nH\ $*
+let g:tex_flavor = "latex"

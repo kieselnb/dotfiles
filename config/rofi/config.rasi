@@ -1,0 +1,3 @@
+configuration {
+	theme: "/home/kieselnb/.config/rofi/themes/glue_pro_blue_nbk.rasi";
+}
